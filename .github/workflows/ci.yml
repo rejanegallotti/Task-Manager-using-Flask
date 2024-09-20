@@ -37,8 +37,10 @@ jobs:
 
     - name: Run tests
       run: |
-        # Muda para o diretório de testes antes de rodar os testes
+        # Muda para o diretório de testes
         cd todo_project/todo_project
+        # Adiciona o diretório pai ao PYTHONPATH
+        export PYTHONPATH=$(pwd):$PYTHONPATH
         python -m unittest discover -s tests
 
         python -m unittest discover -s tests/unit -p '*_test.py'
