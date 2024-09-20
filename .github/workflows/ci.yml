@@ -32,5 +32,5 @@ jobs:
 
     - name: Run tests
       run: |
-        PYTHONPATH=$(pwd) python -m unittest discover -s tests
+        python -m unittest discover -s ./tests
         
