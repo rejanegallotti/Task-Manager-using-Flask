@@ -1,3 +1,6 @@
+import sys
+print(sys.path)  # Isso vai mostrar os diretórios no PYTHONPATH
+
 import unittest
 from todo_project import app
 
