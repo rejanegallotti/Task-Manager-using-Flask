@@ -43,4 +43,4 @@ jobs:
         export PYTHONPATH=$(pwd):$PYTHONPATH
         python -m unittest discover -s tests
 
-        python -m unittest discover -s tests/unit -p '*_test.py'
+        python -m unittest discover -s tests/unit -p 'test_*.py'
