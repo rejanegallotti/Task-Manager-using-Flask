@@ -37,6 +37,8 @@ jobs:
 
     - name: Run tests
       run: |
-        python -m unittest discover -s ./tests
+        # Muda para o diretório de testes antes de rodar os testes
+        cd todo_project/todo_project
+        python -m unittest discover -s tests
 
-        python -m unittest discover -s ./tests/unit -p '*_test.py'
+        python -m unittest discover -s tests/unit -p '*_test.py'
