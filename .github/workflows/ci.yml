@@ -24,6 +24,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: build  # Adiciona esta linha para garantir que o job 'build' seja concluído antes
 
     steps:
       - name: Checkout code
