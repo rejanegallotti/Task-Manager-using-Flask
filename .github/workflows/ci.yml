@@ -58,15 +58,15 @@ jobs:
         
       - name: Run Bandit
         run: |
-          bandit -r ./todo_project/ -f json -o bandit_report.json
           bandit -r ./todo_project/ -f html -o bandit_report.html
         
       - name: Check for vulnerabilities
         run: |
-          if grep -q '"issues": []' bandit_report.json; then
+          if grep -q '"issues": []' bandit_report.html; then
             echo "No vulnerabilities found."
           else
             echo "Vulnerabilities found!"
+            cat bandit_report.json  
             exit 1
           fi
         
@@ -76,4 +76,3 @@ jobs:
           name: bandit-reports
           path: |
             bandit_report.html
-            bandit_report.json
