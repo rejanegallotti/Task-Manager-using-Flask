@@ -24,18 +24,22 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build  # Adiciona esta linha para garantir que o job 'build' seja concluído antes
+    needs: build
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python and Install Dependencies and Run Tests
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.12'
+          python-version: '3.x'
         
-      - run: |
+      - name: Install dependencies
+        run: |
           pip install -r requirements.txt
-          export PYTHONPATH=$(pwd)/todo_project:$PYTHONPATH
+
+      - name: Set PYTHONPATH and Run Tests
+        run: |
+          export PYTHONPATH=$(pwd):$PYTHONPATH
           python -m unittest discover -s todo_project/tests -v
