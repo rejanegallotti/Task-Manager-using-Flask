@@ -42,7 +42,7 @@ jobs:
   bandit_sast:
     name: Run Bandit for SAST
     runs-on: ubuntu-latest
-    needs: build  # Bandit roda após o build
+    needs: test  # Bandit roda após o build
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
