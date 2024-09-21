@@ -61,7 +61,6 @@ jobs:
                 run: |
                   bandit -r ./todo_project/ -f json -o bandit_report.json
                   bandit -r ./todo_project/ -f html -o bandit_report.html
-                  cat bandit_report.json  # Adiciona esta linha para visualizar a saída
         
               - name: Check for vulnerabilities
                 run: |
