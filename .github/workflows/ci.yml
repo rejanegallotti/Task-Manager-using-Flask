@@ -58,10 +58,17 @@ jobs:
 
       - name: Run Bandit
         run: |
-          bandit -r ./todo_project/ -f html -o bandit_report.html || true
+          bandit -r ./todo_project/ -f html -o bandit_report.html
       
+      - name: Fail if Bandit found issues
+        run: |
+          if grep -q 'issues found' bandit_report.html; then
+            echo "Bandit found vulnerabilities!"
+            exit 1
+          fi
+
       - name: Upload Bandit Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: bandit-report
           path: bandit_report.html
