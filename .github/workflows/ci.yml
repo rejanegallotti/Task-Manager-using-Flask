@@ -43,6 +43,7 @@ jobs:
     name: Run Bandit for SAST
     runs-on: ubuntu-latest
     needs: test
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -58,21 +59,5 @@ jobs:
         
       - name: Run Bandit
         run: |
-          bandit -r ./todo_project/ -f html -o bandit_report.html
+          bandit -r .
         
-      - name: Check for vulnerabilities
-        run: |
-          if grep -q '"issues": []' bandit_report.html; then
-            echo "No vulnerabilities found."
-          else
-            echo "Vulnerabilities found!"
-            cat bandit_report.json  
-            exit 1
-          fi
-        
-      - name: Upload Bandit Reports
-        uses: actions/upload-artifact@v3
-        with:
-          name: bandit-reports
-          path: |
-            bandit_report.html
