@@ -29,19 +29,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Python and Install Dependencies and Run Tests
         uses: actions/setup-python@v2
         with:
           python-version: '3.12'
-
-      - name: Install dependencies
-        run: |
-          pip install -r todo_project/requirements.txt
-
-      - name: Set PYTHONPATH
-        run: |
+        
+      - run: |
+          pip install -r ./requirements.txt
           echo "PYTHONPATH=$(pwd)/todo_project" >> $GITHUB_ENV
-
-      - name: Run tests
-        run: |
           python -m unittest discover -s todo_project/tests
