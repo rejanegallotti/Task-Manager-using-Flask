@@ -42,4 +42,4 @@ jobs:
       - name: Set PYTHONPATH and Run Tests
         run: |
           export PYTHONPATH=$(pwd):$PYTHONPATH
-          python -m unittest discover -s
+          python -m unittest discover -s ./tests -p '*_test.py'
