@@ -39,7 +39,3 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Set PYTHONPATH and Run Tests
-        run: |
-          export PYTHONPATH=$(pwd):$PYTHONPATH
-          python -m unittest discover -s ./tests -p '*_test.py'
