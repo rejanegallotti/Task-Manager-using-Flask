@@ -12,5 +12,4 @@ COPY . .
 ENV FLASK_APP=todo_project/run.py
 EXPOSE 5000
 
-RUN chmod +x start/entrypoint.sh
-CMD ["start/entrypoint.sh"]
+CMD ["python", "run.py"]
