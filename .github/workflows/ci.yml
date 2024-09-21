@@ -41,5 +41,5 @@ jobs:
 
       - name: Set PYTHONPATH and Run Tests
         run: |
-          export PYTHONPATH=$(pwd):$PYTHONPATH
-          python -m unittest discover -s todo_project/tests -v
+          export PYTHONPATH=$(pwd)/todo_project/todo_project:$PYTHONPATH
+          python -m unittest discover -s todo_project/todo_project/tests
