@@ -12,4 +12,4 @@ COPY . .
 ENV FLASK_APP=todo_project/run.py
 EXPOSE 5000
 
-CMD ["flask", "run"]
+CMD ["flask", "run", "--host=0.0.0.0"]
