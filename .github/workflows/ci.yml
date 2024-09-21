@@ -40,7 +40,7 @@ jobs:
           pip install -r requirements.txt
 
   bandit_sast:
-    name: Run Bandit for SAST
+    name: Bandit for SAST
     runs-on: ubuntu-latest
     needs: test
     
@@ -60,7 +60,34 @@ jobs:
       - name: Run Bandit
         run: |
           bandit -r .
-  
-
-
-
+          
+  dependency-check:
+    name: Run OWASP Dependency-Check for Python
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+        
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+        
+      - name: Install OWASP Dependency-Check
+        run: |
+          pip install dependency-check
+        
+      - name: Run OWASP Dependency-Check
+        run: |
+          dependency-check --out odc-reports --scan .
+        
+      - name: Upload Dependency-Check report
+        uses: actions/upload-artifact@v2
+        with:
+          name: dependency-check-report
+          path: odc-reports
