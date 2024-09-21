@@ -36,6 +36,6 @@ jobs:
           python-version: '3.12'
         
       - run: |
-          pip install -r todo_project/requirements.txt
+          pip install -r requirements.txt
           export PYTHONPATH=$(pwd)/todo_project:$PYTHONPATH
           python -m unittest discover -s todo_project/tests
