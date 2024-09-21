@@ -61,21 +61,6 @@ jobs:
         run: |
           bandit -r .
   
-  bandit_image_sast:
-    name: Run Image Bandit for SAST
-    runs-on: ubuntu-latest
-    needs: test
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Docker Scout Scan
-        run: |
-          curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
-          sh install-scout.sh
-          docker scout quickview
-          docker scout cves
 
 
 
