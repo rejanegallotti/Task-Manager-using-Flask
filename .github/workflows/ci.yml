@@ -87,7 +87,7 @@ jobs:
           dependency-check --out odc-reports --scan .
         
       - name: Upload Dependency-Check report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dependency-check-report
           path: odc-reports
