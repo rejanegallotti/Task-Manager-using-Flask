@@ -38,4 +38,4 @@ jobs:
       - run: |
           pip install -r requirements.txt
           export PYTHONPATH=$(pwd)/todo_project:$PYTHONPATH
-          python -m unittest discover -s todo_project/tests
+          python -m unittest discover -s todo_project/tests -v
