@@ -104,11 +104,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Docker image
-        run: docker build -t container-novo .
+        run: docker build -t task-manager-using-flask-web-1 .
 
       - name: Run Flask app in Docker
         run: |
-          docker run -d -p 5000:5000 --name container-novo container-novo
+          docker run -d -p 5000:5000 --name task-manager-using-flask-web-1 task-manager-using-flask-web-1
           sleep 10
 
       - name: ZAP Scan
