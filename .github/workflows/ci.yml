@@ -148,7 +148,7 @@ jobs:
     steps:
     - name: Deploy para o ambiente de Stage
       run: |
-        docker-compose -f docker-compose.stage.yml up -d'
+        docker-compose -f docker-compose.stage.yml up -d
     
 
   # Testes de Segurança Dinâmicos (DAST) no ambiente de Stage
