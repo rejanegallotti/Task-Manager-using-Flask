@@ -99,11 +99,11 @@ jobs:
 
     steps:
       - name: Pull OWASP ZAP Docker image
-        run: docker pull owasp/zap2docker-stable
+        run: docker pull owasp/zap2docker-weekly  # Use a imagem correta
 
       - name: Run ZAP security scan
         run: |
-          docker run -t owasp/zap2docker-stable zap-full-scan.py \
+          docker run -t owasp/zap2docker-weekly zap-full-scan.py \
             -t http://localhost:5000 \
             -r zap_report.html
         # Aqui, o ZAP está escaneando o localhost, já que o app Flask deve estar rodando na porta 5000
