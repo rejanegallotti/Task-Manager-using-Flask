@@ -120,7 +120,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ZAP Report
-          path: zap_report.html
+          path: odc-reports
 
       - name: Stop Docker container
         if: always()
