@@ -124,4 +124,4 @@ jobs:
 
       - name: Stop Docker container
         if: always()
-        run: docker stop novo-container
+        run: docker stop task-manager-using-flask-web-1
